@@ -16,17 +16,21 @@ public class BubbleSort implements SortingAlgorithm {
      * bubbles through an array and swaps adjacent elements if the left is greater than the right
      *
      * @param array
+     * @return - true if a swap has taken place
      */
-    private static void bubble(int[] array) {
+    private static boolean bubble(int[] array) {
 
+        boolean swapOccurred = false;
         // Need to subtract 1 since I had to ArrayIndexOutOfBoundsException the hard way; derp...
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
 
                 swapValues(array, i, i + 1);
+                swapOccurred = true;
             }
         }
 
+        return swapOccurred;
     }
 
     /**
@@ -45,10 +49,15 @@ public class BubbleSort implements SortingAlgorithm {
     @Override
     public int[] sort(int[] array) {
         LOGGER.info("sort()...");
+        LOGGER.info("Array size : {}", array.length);
 
         for (int i = 0; i < array.length; i++) {
 
-            bubble(array);
+            if(bubble(array)){
+                LOGGER.info("Swap happened during iteration '{}'", i);
+            } else{
+                LOGGER.info("No swap at iteration '{}'", i);
+            }
 
         }
 
