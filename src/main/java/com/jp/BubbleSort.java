@@ -57,6 +57,7 @@ public class BubbleSort implements SortingAlgorithm {
                 LOGGER.info("Swap happened during iteration '{}'", i);
             } else{
                 LOGGER.info("No swap at iteration '{}'", i);
+                return array.clone();
             }
 
         }
