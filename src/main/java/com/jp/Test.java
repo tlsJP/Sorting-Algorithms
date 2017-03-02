@@ -20,7 +20,7 @@ public class Test {
     public static void main(String[] args) {
 
         //Select algorithm
-        SortingAlgorithm algorithm = new BubbleSort();
+        SortingAlgorithm algorithm = new InsertionSort();
 
         int[] beforeSort = generateArray();
         LOGGER.info("Before : {}", stringify(beforeSort));
@@ -40,7 +40,7 @@ public class Test {
         return array;
     }
 
-    private static String stringify(int[] array) {
+    public static String stringify(int[] array) {
         return Arrays.stream(array).mapToObj(Integer::toString).collect(Collectors.joining(","));
     }
 }
