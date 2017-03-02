@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Bubble sort
- *
+ * <p>
  * Created by JP on 3/1/2017.
  */
 public class BubbleSort implements SortingAlgorithm {
@@ -36,11 +36,11 @@ public class BubbleSort implements SortingAlgorithm {
         LOGGER.info("sort()...");
 
 
-//        for (int i = 0; i < unsortedArray.length; i++) {
+        for (int i = 0; i < array.length; i++) {
 
-        bubble(array);
+            bubble(array);
 
-//        }
+        }
 
 
         return array.clone();
