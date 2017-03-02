@@ -17,31 +17,40 @@ public class BubbleSort implements SortingAlgorithm {
      *
      * @param array
      */
-    private void bubble(int[] array) {
+    private static void bubble(int[] array) {
 
-        int temp;
         // Need to subtract 1 since I had to ArrayIndexOutOfBoundsException the hard way; derp...
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
-                temp = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = temp;
+
+                swapValues(array, i, i + 1);
             }
         }
 
+    }
+
+    /**
+     * Accepts array and swaps values of two indexes
+     *
+     * @param array  - array to be modified
+     * @param indexA
+     * @param indexB
+     */
+    private static void swapValues(int[] array, int indexA, int indexB) {
+        final int temp = array[indexA];
+        array[indexA] = array[indexB];
+        array[indexB] = temp;
     }
 
     @Override
     public int[] sort(int[] array) {
         LOGGER.info("sort()...");
 
-
         for (int i = 0; i < array.length; i++) {
 
             bubble(array);
 
         }
-
 
         return array.clone();
     }
