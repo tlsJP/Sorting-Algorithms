@@ -3,7 +3,7 @@ package com.jp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.jp.Test.stringify;
+import static com.jp.Helper.stringify;
 
 /**
  * Insertion sort
@@ -20,13 +20,13 @@ public class InsertionSort implements SortingAlgorithm {
 
         for (int i = 0; i < array.length; i++) {
 
-            LOGGER.debug("Current array : {}",stringify(array));
+            LOGGER.debug("Current array : {}", stringify(array));
 
             // The suspect is the value we are currently investigating.
             // We copy the index so we can manipulate it for the purpose of inserting other values from the array.
             int suspect = array[i];
             int insertionIndex = i;
-            LOGGER.debug("Suspect : {} @ {}", suspect,insertionIndex);
+            LOGGER.debug("Suspect : {} @ {}", suspect, insertionIndex);
 
             // At this point we're just trying to find a home for our suspect
             // I learned how to ArrayIndexOutOfBoundsException again!  make sure :: index > 0 ; derp...
@@ -34,7 +34,7 @@ public class InsertionSort implements SortingAlgorithm {
 
                 LOGGER.debug("Shifting...");
 
-                // Since the suspect is greater than the one to the left, we'll just move the left value into
+                // Since the suspect is less than the one to the left, we'll just move the left value into
                 // the spot where the suspect lives
                 array[insertionIndex] = array[insertionIndex - 1];
 
