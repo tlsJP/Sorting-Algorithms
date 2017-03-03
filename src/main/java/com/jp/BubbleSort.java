@@ -3,6 +3,8 @@ package com.jp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.jp.Helper.swapValues;
+
 /**
  * Bubble sort
  * <p>
@@ -33,18 +35,6 @@ public class BubbleSort implements SortingAlgorithm {
         return swapOccurred;
     }
 
-    /**
-     * Accepts array and swaps values of two indexes
-     *
-     * @param array  - array to be modified
-     * @param indexA
-     * @param indexB
-     */
-    private static void swapValues(int[] array, int indexA, int indexB) {
-        final int temp = array[indexA];
-        array[indexA] = array[indexB];
-        array[indexB] = temp;
-    }
 
     @Override
     public int[] sort(int[] array) {
@@ -53,9 +43,9 @@ public class BubbleSort implements SortingAlgorithm {
 
         for (int i = 0; i < array.length; i++) {
 
-            if(bubble(array)){
+            if (bubble(array)) {
                 LOGGER.info("Swap happened during iteration '{}'", i);
-            } else{
+            } else {
                 LOGGER.info("No swap at iteration '{}'", i);
                 return array.clone();
             }
