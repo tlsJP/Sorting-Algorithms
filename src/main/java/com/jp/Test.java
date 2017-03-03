@@ -3,9 +3,8 @@ package com.jp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.Collectors;
+import static com.jp.Helper.generateArray;
+import static com.jp.Helper.stringify;
 
 /**
  * Test class
@@ -15,12 +14,11 @@ import java.util.stream.Collectors;
 public class Test {
     private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);
 
-    private static final Random r = new Random();
 
     public static void main(String[] args) {
 
         //Select algorithm
-        SortingAlgorithm algorithm = new InsertionSort();
+        SortingAlgorithm algorithm = new Quicksort();
 
         int[] beforeSort = generateArray();
         LOGGER.info("Before : {}", stringify(beforeSort));
@@ -31,16 +29,4 @@ public class Test {
     }
 
 
-    private static int[] generateArray() {
-        int arraySize = r.nextInt(20);
-        int[] array = new int[arraySize];
-        for (int i = 0; i < arraySize; i++) {
-            array[i] = r.nextInt(100);
-        }
-        return array;
-    }
-
-    public static String stringify(int[] array) {
-        return Arrays.stream(array).mapToObj(Integer::toString).collect(Collectors.joining(","));
-    }
 }
